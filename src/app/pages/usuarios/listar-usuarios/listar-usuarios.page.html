@@ -11,15 +11,15 @@
     </tr>
   </thead>
   <tbody>
-    @for (usuario of usuarios; track usuario.id_usuario) {
+    @for (usuario of usuarios(); track usuario.id_usuario) {
       <tr>
         <td>{{ usuario.id_usuario }}</td>
         <td>{{ usuario.nombre }}</td>
         <td>{{ usuario.apellido }}</td>
         <td>{{ usuario.username }}</td>
         <td>
-          <button>Editar</button>
-          <button>Eliminar</button>
+          <button [routerLink]="['/usuarios', usuario.id_usuario]">Editar</button>
+          <button (click)="eliminarUsuario(usuario.id_usuario)">Eliminar</button>
         </td>
       </tr>
     } @empty {

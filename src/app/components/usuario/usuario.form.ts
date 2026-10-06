@@ -1,4 +1,4 @@
-import { Component, signal, output } from '@angular/core';
+import { Component, input, linkedSignal, output } from '@angular/core';
 import { FormField, form } from '@angular/forms/signals';
 import { Usuario } from '../../model/usuario';
 import { JsonPipe } from '@angular/common'
@@ -11,7 +11,9 @@ import { JsonPipe } from '@angular/common'
   templateUrl: './usuario.form.html',
 })
 export class UsuarioForm {
-  public usuarioModel = signal<Usuario>({
+  public usuario = input<Usuario>();
+
+  public usuarioModel = linkedSignal<Usuario>(() => this.usuario() ?? {
     id_usuario:0,
     nombre: '',
     apellido: '',

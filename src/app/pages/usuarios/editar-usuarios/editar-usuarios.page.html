@@ -1,0 +1,5 @@
+@if (usuario) {
+  <app-usuario-form [usuario]="usuario" (guardarUsuario)="onGuardarUsuario($event)"></app-usuario-form>
+} @else {
+  <p>No existe el usuario.</p>
+}
