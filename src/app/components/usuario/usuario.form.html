@@ -1,0 +1,23 @@
+<p>usuario works!</p>
+
+<form novalidate (submit)="guardar($event)">
+
+  <label for="nombre">nombre:</label>
+  <input id="nombre" type="text" [formField]="usuarioForm.nombre"/>
+
+  <label for="apellido">apellido</label>
+  <input id="apellido" type="text" [formField]="usuarioForm.apellido"/>
+
+  <label for="username">username</label>
+  <input id="username" type="text" [formField]="usuarioForm.username"/>
+
+
+
+  <br>
+
+  <p>skere {{ usuarioModel().nombre }}</p>
+
+  <button type="submit">guardar</button>
+</form>
+
+<p>{{ usuarioForm().value() | json }}</p>
