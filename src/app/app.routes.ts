@@ -36,6 +36,16 @@ export const routes: Routes = [
     }
   },
 
+  //Despues de create para que create no lo tome como id
+  {
+    path:"usuarios/:id_usuario",
+    title:"editar usuario",
+    loadComponent: async () => {
+      const module = await import('./pages/usuarios/editar-usuarios/editar-usuarios.page');
+      return module.EditarUsuariosPage;
+    }
+  },
+
   {
     path:'tareas',
     loadChildren: () => import ("./tareas.routes")
