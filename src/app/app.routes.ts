@@ -41,6 +41,15 @@ export const routes: Routes = [
     loadChildren: () => import ("./tareas.routes")
   },
 
+  {
+    path:"logout",
+    title:"Salir",
+    loadComponent: async () => {
+      const module = await import('./pages/logout/logout.page');
+      return module.LogoutPage;
+    }
+  },
+
   //Not found (siempre al final)
   {
     path:'**',
